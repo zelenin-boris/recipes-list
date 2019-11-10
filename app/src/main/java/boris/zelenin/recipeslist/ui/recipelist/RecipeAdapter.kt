@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import boris.zelenin.recipeslist.R
-import boris.zelenin.recipeslist.model.Recipe
+import boris.zelenin.recipeslist.data.model.Recipe
 import kotlinx.android.synthetic.main.recipe_item.view.*
 
 class RecipeAdapter(private val onItemClick: (recipe: Recipe) -> Unit) :

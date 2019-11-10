@@ -1,4 +1,4 @@
-package boris.zelenin.recipeslist.model
+package boris.zelenin.recipeslist.data.model
 
 data class Recipe(
         val id: String,

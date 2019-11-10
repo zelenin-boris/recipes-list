@@ -1,10 +1,16 @@
 package boris.zelenin.recipeslist
 
 import android.app.Application
+import boris.zelenin.recipeslist.di.ApplicationComponent
+import boris.zelenin.recipeslist.di.DaggerApplicationComponent
+import boris.zelenin.recipeslist.di.DaggerComponentProvider
 import com.facebook.drawee.backends.pipeline.Fresco
 import timber.log.Timber
 
-class RecipeApplication : Application() {
+class RecipeApplication : Application(), DaggerComponentProvider {
+    override val component: ApplicationComponent by lazy {
+        DaggerApplicationComponent.factory().create(applicationContext)
+    }
 
     override fun onCreate() {
         super.onCreate()
