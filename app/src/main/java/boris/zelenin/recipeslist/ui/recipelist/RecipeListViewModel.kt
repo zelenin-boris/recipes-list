@@ -27,8 +27,12 @@ class RecipeListViewModel @Inject constructor(
         viewModelScope.launch(
                 block = {
                     _state.update(isLoading = true)
-                    recipeDao.clear()
-                    recipeDao.insert(recipeApi.fetch().recipes.toLocalRecipes())
+                    with(recipeApi.fetch().recipes.toLocalRecipes()) {
+                        if (isNotEmpty()) {
+                            recipeDao.clear()
+                            recipeDao.insert(this)
+                        }
+                    }
                     _state.update(isLoading = false)
                 },
                 exceptionHandler = ::handleException
