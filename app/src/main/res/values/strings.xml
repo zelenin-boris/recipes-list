@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Recipes List</string>
+    <string name="sort">Sort</string>
 </resources>
