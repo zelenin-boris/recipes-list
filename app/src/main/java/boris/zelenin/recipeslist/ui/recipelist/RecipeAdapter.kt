@@ -1,4 +1,4 @@
-package boris.zelenin.recipeslist.ui.main
+package boris.zelenin.recipeslist.ui.recipelist
 
 import android.view.LayoutInflater
 import android.view.View

@@ -1,4 +1,4 @@
-package boris.zelenin.recipeslist.ui.main
+package boris.zelenin.recipeslist.ui.recipelist
 
 import android.content.Intent
 import android.net.Uri
@@ -9,16 +9,16 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import boris.zelenin.recipeslist.R
 import boris.zelenin.recipeslist.model.Recipe
-import kotlinx.android.synthetic.main.main_fragment.*
-import kotlinx.android.synthetic.main.main_fragment.view.*
+import kotlinx.android.synthetic.main.fragment_recipe_list.*
+import kotlinx.android.synthetic.main.fragment_recipe_list.view.*
 
-class MainFragment : Fragment() {
+class RecipeListFragment : Fragment() {
 
     companion object {
-        fun newInstance() = MainFragment()
+        fun newInstance() = RecipeListFragment()
     }
 
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: RecipeListViewModel
 
     private val adapter = RecipeAdapter { recipe ->
         recipe.f2fUrl?.let {
@@ -57,7 +57,7 @@ class MainFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        val mainView = inflater.inflate(R.layout.main_fragment, container, false)
+        val mainView = inflater.inflate(R.layout.fragment_recipe_list, container, false)
         setHasOptionsMenu(true)
 
         mainView.recipes_list.adapter = adapter
@@ -69,7 +69,7 @@ class MainFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         (activity as AppCompatActivity).setSupportActionBar(toolbar)
 
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(RecipeListViewModel::class.java)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
